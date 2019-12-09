@@ -20,7 +20,7 @@ we implement our methods by PyTorch on NVIDIA Tesla V100. The environment is as 
 - [Ubuntu 16.04 Desktop](https://ubuntu.com/download)
 - [PyTorch](https://PyTorch.org/), version >= 0.4.1
 - [CUDA](https://developer.nvidia.com/cuda-downloads), version >= 9.0
-- Python3([Anaconda3(64bit)])(https://www.anaconda.com/)
+- [Anaconda3](https://www.anaconda.com/)
 
 Install PyTorch and Torchvision (Conda):
 ```bash
@@ -32,7 +32,7 @@ Install PyTorch and Torchvision (Pip3):
 pip3 install torch torchvision
 ```
 ## Experiments
-We verify the effectiveness of T_revision on three synthetic noisy datasets (MNIST, CIFAR-10, CIFAR-100), and one real-world noisy dataset (clothing1M). And We provide [datasets].(https://drive.google.com/open?id=1Tz3W3JVYv2nu-mdM6x33KSnRIY1B7ygQ) (the images and labels have been processed to .npy format)
+We verify the effectiveness of T_revision on three synthetic noisy datasets (MNIST, CIFAR-10, CIFAR-100), and one real-world noisy dataset (clothing1M). And We provide [datasets](https://drive.google.com/open?id=1Tz3W3JVYv2nu-mdM6x33KSnRIY1B7ygQ) (the images and labels have been processed to .npy format)
 Here is an example: 
 ```bash
 python main.py --dataset cifar10 --noise_rate 0.5
