@@ -32,7 +32,7 @@ Install PyTorch and Torchvision (Pip3):
 pip3 install torch torchvision
 ```
 ## Experiments
-We verify the effectiveness of T_revision on three synthetic noisy datasets (MNIST, CIFAR-10, CIFAR-100), and one real-world noisy dataset (clothing1M). And We provide [datasets](https://drive.google.com/open?id=1Tz3W3JVYv2nu-mdM6x33KSnRIY1B7ygQ) (the images and labels have been processed to .npy format)
+We verify the effectiveness of T_revision on three synthetic noisy datasets (MNIST, CIFAR-10, CIFAR-100), and one real-world noisy dataset (clothing1M). And We provide [datasets](https://drive.google.com/open?id=1Tz3W3JVYv2nu-mdM6x33KSnRIY1B7ygQ) (the images and labels have been processed to .npy format).        
 Here is an example: 
 ```bash
 python main.py --dataset cifar10 --noise_rate 0.5
