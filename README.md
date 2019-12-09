@@ -11,7 +11,6 @@ If you find this code useful in your research, please cite
   title={Are Anchor Points Really Indispensable in Label-Noise Learning?},
   author={Xia, Xiaobo and Liu, Tongliang and Wang, Nannan and Han, Bo and Gong, Chen and Niu, Gang and Sugiyama, Masashi},
   booktitle={NeurIPS},
-  pages={1--1},
   year={2019}
 }
 ```  
