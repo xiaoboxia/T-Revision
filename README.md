@@ -2,7 +2,7 @@
 NeurIPS 2019: [Are Anchor Points Really Indispensable in Label-Noise Learning? ](PyTorch implementation).
 ============
 This is the code for the paper:
-[Are Anchor Points Really Indispensable in Label-Noise Learning?](https://papers.nips.cc/paper/8908-are-anchor-points-really-indispensable-in-label-noise-learning)
+[Are Anchor Points Really Indispensable in Label-Noise Learning?](https://papers.nips.cc/paper/8908-are-anchor-points-really-indispensable-in-label-noise-learning)      
 Xiaobo Xia, Tongliang Liu, Nannan Wang, Bo Han, Chen Gong, Gang Niu, Masashi Sugiyama.
 
 If you find this code useful in your research, please cite  
