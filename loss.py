@@ -36,6 +36,7 @@ class reweighting_revision_loss(nn.Module):
     def forward(self, out, T, correction, target):
         loss = 0.
         out_softmax = F.softmax(out, dim=1)
+        T_result = T + correction
         for i in range(len(target)):
             temp_softmax = out_softmax[i]
             temp = out[i]
@@ -44,8 +45,6 @@ class reweighting_revision_loss(nn.Module):
             temp_target = target[i]
             temp_target = torch.unsqueeze(temp_target, 0)
             pro1 = temp_softmax[:, target[i]]
-            T = T + correction
-            T_result = T
             out_T = torch.matmul(T_result.t(), temp_softmax.t())
             out_T = out_T.t()
             pro2 = out_T[:, target[i]]    
