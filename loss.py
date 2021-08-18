@@ -54,3 +54,37 @@ class reweighting_revision_loss(nn.Module):
             _loss = beta * cross_loss
             loss += _loss
         return loss / len(target)
+
+def get_noisy_prob(transition_mat, clean_prob):
+    return torch.matmul(transition_mat.T, clean_prob.unsqueeze(-1)).squeeze()
+
+class reweight_loss_v2(nn.Module):
+    def __init__(self):
+        super(reweight_loss_v2, self).__init__()
+        
+    def forward(self, out, T, target):
+        out_softmax = F.softmax(out, dim=1)
+        noisy_prob = get_noisy_prob(T, out_softmax)
+        pro1 = torch.gather(out_softmax, dim=-1, index=target.unsqueeze(1)).squeeze()
+        pro2 = torch.gather(noisy_prob, dim=-1, index=target.unsqueeze(1)).squeeze()
+        beta = pro1 / pro2
+        beta = Variable(beta, requires_grad=True)
+        cross_loss = F.cross_entropy(out, target, reduction='none')
+        _loss = beta * cross_loss
+        return torch.mean(_loss)
+
+class reweighting_revision_loss_v2(nn.Module):
+    def __init__(self):
+        super(reweighting_revision_loss_v2, self).__init__()
+        
+    def forward(self, out, T, correction, target):
+        out_softmax = F.softmax(out, dim=1)
+        T = T + correction
+        noisy_prob = get_noisy_prob(T, out_softmax)
+        pro1 = torch.gather(out_softmax, dim=-1, index=target.unsqueeze(1)).squeeze()
+        pro2 = torch.gather(noisy_prob, dim=-1, index=target.unsqueeze(1)).squeeze()
+        beta = pro1 / pro2
+        beta = Variable(beta, requires_grad=True)
+        cross_loss = F.cross_entropy(out, target, reduction='none')
+        _loss = beta * cross_loss
+        return torch.mean(_loss)
